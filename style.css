@@ -1,0 +1,252 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background-color: lightblue;
+}
+ /* text  */
+    .text{
+        font-family: "Sofia", sans-serif;
+        display: block;
+        position: absolute;
+        font-size: 20px;
+      color:white;
+      text-shadow: 2px 2px 10px #000, 0px 0px 5px #000, 4px 4px 30px rgb(17, 54, 219);
+    animation: movetext 15s infinite;
+    }
+    
+    @keyframes movetext {
+        0%{
+           top:0px;
+           left:0px;
+           transform: rotate(-90deg);
+        }
+        
+        20%{
+            top:150px;
+           left:50%;
+           
+           transform: rotate(0deg)
+        }
+        40%{
+            top:300px;
+            left:70%;
+            transform: rotate(-90deg);
+    
+        }
+        60%{
+            top:350px;
+            left:35%;
+            transform: rotate(0deg)
+        }
+        80%{
+            left:0;
+            top:500px;
+            transform: rotate(90deg);
+        }
+        100%{
+            top:0px;
+           left:0px;
+           transform: rotate(0deg);
+        }
+    
+    }
+ /* bong bóng  */
+ .cover__circle{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+}
+
+.general{
+  animation: Circle 5s infinite;
+  position: relative;
+
+}
+#circle1{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--color-red);
+    animation-timing-function: ease;
+    animation: Circle 15s infinite;
+}
+#circle2{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-green);
+  animation-timing-function:ease-in;
+}
+#circle3{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--color-purple);
+  animation-timing-function:ease-in-out;
+}
+#circle4{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-yellow);
+  animation-timing-function: ease-out;
+}
+#circle5{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-purple);
+  animation-timing-function:ease;
+  
+}
+@keyframes Circle{
+   0%{ top:0px;
+  }
+   100%{
+       top: 700px;
+   }
+}
+
+
+:root{
+  --color-red: red;
+  --color-yellow: yellow;
+  --color-purple: rgb(209, 112, 193);
+  --color-green: green;
+  --color: rgb(135, 217, 238);
+}
+
+/* img gif box   */
+.img_box{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 30%;
+    margin-bottom: -50%;
+    animation: moveimg 4s ease-in-out infinite ;
+    cursor: pointer;
+    
+}
+
+.img_box:hover{
+    width: 400px;
+    height: 400px;
+animation: hoverbox 10s step-end;
+
+
+}
+ @keyframes hoverbox{
+    from{
+        width:  0px;
+        height: 0px;
+        transform: rotateY(0);
+    }  
+    to {width: 300px;
+     height: 300px;
+     transform: rotateY(0deg);
+    }
+ }
+
+ @keyframes moveimg {
+     0%{
+         transform: rotateY(0deg);
+     }
+     /* 20%{ transform: rotateY(36deg)};
+     40%{ transform: rotateY(72deg)};
+     60%{ transform: rotateY(108deg)};
+     80%{ transform: rotateY(144deg)}; */
+     100%{ transform: rotateY(180deg)};
+     
+
+ }
+
+  /* arrow  */
+  span{
+  
+        margin-top: 0px;
+        display: flex;
+        justify-content: center;
+   
+  }
+  .icon{
+      font-size: 15px;
+      color: aliceblue;
+      animation: ChangeColor 5s infinite;
+  }
+
+  @keyframes ChangeColor{
+    0%{
+        color: red;
+        
+    }
+    25%{
+        color: blueviolet;
+        
+    }
+    50%{
+        color: green;
+        
+    }
+    75%{
+        color: yellow;
+       
+    }
+    100%{
+        color: hotpink;
+      
+    }
+}
+
+/* nút mở quà  */
+
+.button{
+    position: relative;
+    margin:12px 12px;
+    padding:15px 24px;
+    
+    background-color: blueviolet;
+    box-shadow: rgb(67, 7, 110) -10px -10px 10px;
+    color:white;
+    text-shadow: 1px 1px 2px rgb(12, 1, 8);
+    outline: none;
+    display: inline-block;
+   
+    border-style:none;
+    cursor: pointer;
+    transition: color 4s ease-in 1s;
+    font-size: 50px;
+    animation: Start 4s forwards;
+   
+    
+}
+@keyframes Start{
+  0%{ left:0px;
+ }
+  100%{
+      left: 50%;
+      transform: translateX(-50%)
+  }
+}
+
+.button::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width:0;
+    background-color: rgb(247,131,172);
+    z-index: -1;
+    top:0;
+    left:0;
+    transition: width 1s ease  ;
+    border-radius: 0.7px;
+  
+}
+.button:hover::before{
+    width: 100%;
+   
+    box-shadow: rgb(97, 3, 66) -10px -10px 10px;
+}
